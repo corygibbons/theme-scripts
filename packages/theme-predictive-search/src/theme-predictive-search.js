@@ -24,6 +24,12 @@ PredictiveSearch.TYPES = {
   PRODUCT: "product"
 };
 
+PredictiveSearch.UNAVAILABLE_PRODUCTS = {
+  SHOW: "show",
+  HIDE: "hide",
+  BURY: "bury"
+};
+
 PredictiveSearch.prototype.DEBOUNCE_RATE = 10;
 
 PredictiveSearch.prototype.query = function query(query) {
