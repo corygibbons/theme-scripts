@@ -40,6 +40,7 @@ function registerSections() {
     onUnload: jest.fn(),
     onSelect: jest.fn(),
     onDeselect: jest.fn(),
+    onReorder: jest.fn(),
     onBlockSelect: jest.fn(),
     onBlockDeselect: jest.fn()
   });
@@ -480,6 +481,24 @@ describe('adds event handlers to the document when Shopify.designMode === true, 
     document.addEventListener('shopify:section:deselect', () => {
       expect(instances[0].onDeselect).toHaveBeenCalledTimes(1);
       expect(instances[0].onDeselect).toHaveBeenLastCalledWith(event);
+      done();
+    });
+
+    wrapper.dispatchEvent(event);
+  });
+
+  test('calls the onReorder method of a section when shopify:section:reorder event is fired', done => {
+    const wrapper = document.getElementById('shopify-section-1');
+    const event = new CustomEvent('shopify:section:reorder', {
+      bubbles: true,
+      detail: {sectionId: '1'}
+    });
+
+    load('type1');
+
+    document.addEventListener('shopify:section:reorder', () => {
+      expect(instances[0].onReorder).toHaveBeenCalledTimes(1);
+      expect(instances[0].onReorder).toHaveBeenLastCalledWith(event);
       done();
     });
 

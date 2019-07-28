@@ -263,6 +263,14 @@ if (window.Shopify.designMode) {
     }
   });
 
+  document.addEventListener('shopify:section:reorder', function(event) {
+    var instance = getInstanceById(event.detail.sectionId);
+
+    if (typeof instance === 'object') {
+      instance.onReorder(event);
+    }
+  });
+
   document.addEventListener('shopify:block:select', function(event) {
     var instance = getInstanceById(event.detail.sectionId);
 

@@ -16,6 +16,7 @@ Section.prototype = {
   onUnload: Function.prototype,
   onSelect: Function.prototype,
   onDeselect: Function.prototype,
+  onReorder: Function.prototype,
   onBlockSelect: Function.prototype,
   onBlockDeselect: Function.prototype,
 

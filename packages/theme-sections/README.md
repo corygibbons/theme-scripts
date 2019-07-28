@@ -79,6 +79,11 @@ register('featured-product', {
     // Do something when a section instance is deselected
   },
 
+  // Shortcut function called when a section is reordered in the Theme Editor 'shopify:section:reorder' event.
+  onReorder: function() {
+    // Do something when a section instance is reordered
+  },
+
   // Shortcut function called when a section block is selected by the Theme Editor 'shopify:block:select' event.
   onBlockSelect: function() {
     // Do something when a section block is selected
